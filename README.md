@@ -3,7 +3,7 @@
 [![Tech Stack](https://img.shields.io/badge/Stack-Linux_IaC-blueviolet?style=for-the-badge)](https://www.linux.org/)
 [![Bash Script](https://img.shields.io/badge/Scripting-Bash-black?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
-[![GitHub Repo Stars](https://img.shields.io/github/stars/seuusuario/linux-iac?style=for-the-badge)](https://github.com/seuusuario/linux-iac/stargazers)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/seuusuario/linux-iac?style=for-the-badge)](https://github.com/FabCode100/linux_IAC_Project/stargazers)
 
 **Linux IaC** é um projeto que automatiza a criação de usuários, grupos e diretórios em servidores Linux, aplicando permissões de forma padronizada e segura. Ideal para administradores de sistemas que buscam produtividade, consistência e segurança na gestão de servidores.
 
