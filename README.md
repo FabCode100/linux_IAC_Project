@@ -1,111 +1,110 @@
-# Projeto Linux IaC: Criação de Usuários, Grupos e Diretórios
+# 🖥️ Linux IaC — Automação de Usuários, Grupos e Diretórios
 
-Este projeto implementa **Infraestrutura como Código (IaC)** em Linux, automatizando a criação de usuários, grupos, diretórios e permissões.
+[![Tech Stack](https://img.shields.io/badge/Stack-Linux_IaC-blueviolet?style=for-the-badge)](https://www.linux.org/)
+[![Bash Script](https://img.shields.io/badge/Scripting-Bash-black?style=for-the-badge&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/seuusuario/linux-iac?style=for-the-badge)](https://github.com/seuusuario/linux-iac/stargazers)
 
----
+**Linux IaC** é um projeto que automatiza a criação de usuários, grupos e diretórios em servidores Linux, aplicando permissões de forma padronizada e segura. Ideal para administradores de sistemas que buscam produtividade, consistência e segurança na gestão de servidores.
 
-## Objetivo
-
-Automatizar a configuração de servidores Linux para gestão de usuários e permissões de diretórios, garantindo:
-
-- Criação rápida e padronizada de usuários e grupos.
-- Aplicação consistente de permissões de acesso.
-- Facilidade de replicação do ambiente em outros servidores.
-- Segurança, com senhas criptografadas e obrigatoriedade de troca no primeiro login.
+> ⚡ Desenvolvido com foco em **Infraestrutura como Código**, automação e boas práticas de segurança.
 
 ---
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
-1. **Usuários convidados**
-   - `guest10`, `guest11`, `guest12`, `guest13`
-   - Senha padrão: `Senha123` (expirada no primeiro login)
-   - Shell padrão: `/bin/bash`
-
-2. **Diretórios**
-   - `/publico` – acesso total (777)
-   - `/adm` – acesso grupo ADM (770)
-   - `/ven` – acesso grupo Vendas (770)
-   - `/sec` – acesso grupo Segurança (770)
-
-3. **Grupos**
-   - `GRP_ADM` – administrativo
-   - `GRP_VEN` – vendas
-   - `GRP_SEC` – segurança
-
-4. **Usuários vinculados a grupos**
-   - **ADM:** `carlos`, `maria`, `joao`
-   - **VEN:** `debora`, `sebastiana`, `roberto`
-   - **SEC:** `josefina`, `amanda`, `rogerio`
-
-5. **Segurança**
-   - Senhas criptografadas com `openssl passwd -crypt`.
-   - Expiração de senha no primeiro login (`passwd -e`).
+- 👤 Criação automática de usuários convidados (`guest10` a `guest13`)  
+- 🗂️ Criação de diretórios estruturados (`/publico`, `/adm`, `/ven`, `/sec`)  
+- 👥 Criação de grupos de usuários (`GRP_ADM`, `GRP_VEN`, `GRP_SEC`)  
+- 🔐 Configuração de permissões de diretórios (`770` para grupos, `777` para público)  
+- 🔑 Senhas criptografadas e expiração obrigatória no primeiro login  
+- ♻️ Automação completa para replicação de ambientes Linux  
 
 ---
 
-## Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas
 
+### 🖥️ Scripting
+- [Bash](https://www.gnu.org/software/bash/) — Automação de tarefas no Linux  
+- Comandos Linux: `useradd`, `groupadd`, `mkdir`, `chmod`, `chown`, `passwd`
+
+### 🔐 Segurança
+- Criptografia de senhas com `openssl passwd -crypt`  
+- Política de expiração de senha (`passwd -e`)  
+
+### ⚙️ Infraestrutura
+- Linux Server — Ambiente de execução e testes  
+- IaC — Facilita a replicação do ambiente em múltiplos servidores
+
+---
+
+## 💻 Como Rodar o Projeto Localmente
+
+### ⚙️ Pré-requisitos
+
+- Sistema Linux (Ubuntu, Debian, CentOS, etc.)  
+- Acesso root ou sudo  
+
+### 📥 Instalação e Execução
+
+```bash
+# Clone o repositório
+git clone https://github.com/seuusuario/linux-iac.git
+cd linux-iac
+````
+
+#### 🔧 Criação de usuários convidados
+
+```bash
+sudo chmod +x criar_usuarios_convidados.sh
+sudo ./criar_usuarios_convidados.sh
 ```
 
-projeto-linux-iac/
-│
-├─ criar\_usuarios\_convidados.sh   # Script de criação de usuários convidados
-├─ criar\_grupos\_diretorios.sh     # Script de criação de grupos e diretórios
-└─ README.md                      # Documentação do projeto
-
-````
-
----
-
-## Como Executar
-
-1. Dê permissão de execução aos scripts:
+#### 🔧 Criação de grupos e diretórios
 
 ```bash
-chmod +x criar_usuarios_convidados.sh
-chmod +x criar_grupos_diretorios.sh
-````
-
-2. Execute os scripts como root:
-
-```bash
-sudo ./criar_usuarios_convidados.sh
+sudo chmod +x criar_grupos_diretorios.sh
 sudo ./criar_grupos_diretorios.sh
 ```
 
-3. Verifique usuários, grupos e permissões:
+#### 🔍 Verificação
 
 ```bash
-getent passwd
-getent group
-ls -l /
+getent passwd      # Lista usuários
+getent group       # Lista grupos
+ls -l /            # Verifica diretórios e permissões
 ```
 
 ---
 
-## Permissões dos Diretórios
+## 📁 Estrutura do Projeto
 
-| Diretório | Grupo    | Permissão | Acesso           |
-| --------- | -------- | --------- | ---------------- |
-| /publico  | -        | 777       | Todos            |
-| /adm      | GRP\_ADM | 770       | root + Grupo ADM |
-| /ven      | GRP\_VEN | 770       | root + Grupo VEN |
-| /sec      | GRP\_SEC | 770       | root + Grupo SEC |
-
----
-
-## Benefícios do IaC
-
-* **Automatização:** Criação de usuários, grupos e permissões sem intervenção manual.
-* **Padronização:** Mesmas regras aplicadas em qualquer servidor.
-* **Reprodutibilidade:** Scripts podem ser executados em novos servidores para criar o mesmo ambiente.
-* **Segurança:** Senhas criptografadas e controle de acesso consistente.
+```bash
+linux-iac/
+├── criar_usuarios_convidados.sh   # Script de criação de usuários convidados
+├── criar_grupos_diretorios.sh     # Script de criação de grupos e diretórios
+└── README.md                      # Documentação do projeto
+```
 
 ---
 
-## Autor
+## 📈 Benefícios do IaC
 
-**Fabrício Bastos Cardoso**
-Email: [fabriciobc47@gmail.com](mailto:fabriciobc47@gmail.com)
-GitHub: [FabCode100](https://github.com/FabCode100)
+* 🔄 **Automatização:** Sem intervenção manual para criar usuários e grupos
+* ✅ **Padronização:** Mesmas regras aplicadas em todos os servidores
+* 📦 **Reprodutibilidade:** Scripts podem ser replicados em novos servidores
+* 🔐 **Segurança:** Senhas criptografadas e controle de acesso consistente
+
+---
+
+## 🧑‍💻 Autor
+
+Desenvolvido por [**Seu Nome**](https://github.com/seuusuario)
+💼 Administrador Linux | Apaixonado por automação, segurança e infraestrutura escalável
+
+---
+
+## ⭐ Contribua
+
+Gostou do projeto?
+Deixe uma ⭐ no repositório, abra *issues* ou envie *pull requests* para melhorias!
