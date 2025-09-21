@@ -107,5 +107,5 @@ ls -l /
 ## Autor
 
 **Seu Nome**
-Email: [seuemail@exemplo.com](mailto:seuemail@exemplo.com)
-GitHub: [seuusuario](https://github.com/seuusuario)
+Email: [fabriciobc47@gmail.com](mailto:fabriciobc47@gmail.com)
+GitHub: [FabCode100](https://github.com/FabCode100)
