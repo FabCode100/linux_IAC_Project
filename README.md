@@ -106,6 +106,6 @@ ls -l /
 
 ## Autor
 
-**Seu Nome**
+**Fabrício Bastos Cardoso**
 Email: [fabriciobc47@gmail.com](mailto:fabriciobc47@gmail.com)
 GitHub: [FabCode100](https://github.com/FabCode100)
