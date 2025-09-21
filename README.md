@@ -99,7 +99,7 @@ linux-iac/
 
 ## 🧑‍💻 Autor
 
-Desenvolvido por [**Seu Nome**](https://github.com/seuusuario)
+Desenvolvido por [**Fabricio Bastos**](https://github.com/FabCode100)
 💼 Administrador Linux | Apaixonado por automação, segurança e infraestrutura escalável
 
 ---
